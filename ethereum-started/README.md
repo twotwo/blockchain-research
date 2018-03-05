@@ -1,4 +1,6 @@
 # 以太坊入门
+ * [以太坊白皮书](https://github.com/ethereum/wiki/blob/master/%5B中文%5D-以太坊白皮书.md)
+ * [以太坊开发计划](https://github.com/ethereum/wiki/blob/master/%5B中文%5D-以太坊开发计划.md)
 
 ## 工具安装
  * Ethereum Wallet 
@@ -15,3 +17,9 @@ Solidity是一门面向合约的、为实现智能合约而创建的高级编程
 
 ### [Truffle](http://truffleframework.com/) `npm install -g truffle`
 [Truffle](http://truffle.tryblockchain.org/) 是针对基于以太坊的Solidity语言的一套开发框架。本身基于Javascript。
+
+### [与合约交互](http://truffle.tryblockchain.org/truffle-InteractingWithContracts-与合约交互.html)
+ * Transaction 交易： 需要GAS，改变网络状态，不立即执行，不暴露返还结果(仅返还交易ID)
+ * Call 调用： 免费
+ * Abstract 接口
+ * Catching Events 捕获事件
