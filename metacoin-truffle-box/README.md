@@ -65,6 +65,7 @@ Saving artifacts...
 Accounts:
 (0) 0x627306090abab3a6e1400e9345bc60c78a8bef57
 ...
+truffle(develop)> web3.eth.accounts
 truffle(develop)> let account = "0x627306090abaB3A6e1400e9345bC60c78a8BEf57";MetaCoin.deployed().then(function(instance){return instance.getBalance(account, { from: account, gas: 1000000 });});
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.balances;});
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.sendCoin("0x627306090abab3a6e1400e9345bc60c78a8bef57", 1000);});
