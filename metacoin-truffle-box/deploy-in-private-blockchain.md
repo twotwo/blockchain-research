@@ -9,7 +9,8 @@ $ mkdir privchain
 $ cp $ethereum-started/genesis.json .
 $ geth --datadir privchain init genesis.json
 $ geth --networkid 888888 --nodiscover --datadir="privchain" \
- --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" --fast
+ --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" \
+ --fast --gasprice 4000000000 --targetgaslimit 4712388
 ```
 
 ### node端登录并创建账户
@@ -84,4 +85,51 @@ BigNumber { s: 1, e: 0, c: [ 0 ] }
 ```bash
 # 0x627306090abaB3A6e1400e9345bC60c78a8BEf57/c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
 web3.personal.importRawKey("c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3","password")
+```
+
+## 写测试用例
+ * [Writing Tests in JavaScript](http://truffleframework.com/docs/getting_started/javascript-tests)
+
+### `test/account-test.js`
+
+```bash
+# unlock manage account
+truffle(development)> web3.personal.unlockAccount('0x627306090abaB3A6e1400e9345bC60c78a8BEf57', "password", 15000)
+true
+truffle(development)> test test/account-test.js
+Using network 'development'.
+
+web3.eth.accounts: 0x3b82c1ea469033260c7fe4660b13a77996c33674,0x627306090abab3a6e1400e9345bc60c78a8bef57
+coinbase has 6.97352851527e+22
+  ✓ list account balance (304ms)
+
+  1 passing (305ms)
+```
+
+## Issues
+
+### Error: VM Exception while processing transaction: invalid JUMP at xxx
+非常困扰的问题。同样的代码，偶尔能成功调用合约，但多数时候会返回这个错误。
+
+### Error: exceeds block gas limit
+[创世区块](../ethereum-started/genesis.json)中设置的gasLimit太小。最小应该是4712388，换算成十六进制就是0x47e7c4。
+
+或者指定 `truffle.js` 中的 gas limit值
+
+```js
+  networks: {
+    development: {
+      host: '172.16.100.70',
+      port: 8545,
+      //Gas limit used for deploys. Default is 4712388
+      gas: '400000',
+      from: '0x627306090abaB3A6e1400e9345bC60c78a8BEf57',
+      network_id: '*' // Match any network id
+    }
+  }
+```
+
+```bash
+truffle(development)> web3.eth.getBlock("pending").gasLimit
+4712388
 ```

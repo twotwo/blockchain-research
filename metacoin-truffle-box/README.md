@@ -17,12 +17,10 @@ Commands:
   Test contracts:    truffle test
 ```
 
-
-## Configuring
- * `truffle.js` use Ganache, run at port 7545
-
-
 ## Running
+
+### Deploy on Ganache Chain(7545)
+ * `truffle.js` use Ganache, run at port 7545
 
 ```bash
 ➜  metacoin-truffle-box git:(master) ✗ truffle compile
@@ -57,21 +55,35 @@ Saving artifacts...
 
 ```
 
-## Interactions in `truffle develop`
-
-
+### Deploy on Develop Chain(9545)
+ * `truffle.js` config port 9545
+ * Interactions in `truffle develop`
 
 ```bash
-Accounts:
+# Get All Accounts:
 (0) 0x627306090abab3a6e1400e9345bc60c78a8bef57
 ...
 truffle(develop)> web3.eth.accounts
+...
+# MetaCoin地址: 0x7a0b88a255af23199c399252f16453db3026e80c
+truffle(development)> networks
+
+Network: development (id: 888888)
+  ConvertLib: 0x893686151e5b679e3f8018059cacc8038c1ee729
+  MetaCoin: 0x7a0b88a255af23199c399252f16453db3026e80c
+  Migrations: 0x8cdaf0cd259887258bc13a92c0a6da92698644c0
+truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.getBalance("0x7a0b88a255af23199c399252f16453db3026e80c");});
 truffle(develop)> let account = "0x627306090abaB3A6e1400e9345bC60c78a8BEf57";MetaCoin.deployed().then(function(instance){return instance.getBalance(account, { from: account, gas: 1000000 });});
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.balances;});
-truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.sendCoin("0x627306090abab3a6e1400e9345bc60c78a8bef57", 1000);});
-truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.getBalance("0x627306090abab3a6e1400e9345bc60c78a8bef57");});
+# MetaCoin手工转账
+truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.sendCoin(web3.eth.accounts[0], 1000, {from: web3.eth.accounts[1]});});
+truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.getBalance(web3.eth.accounts[0]);});
 truffle(develop)> .exit
 ```
+
+
+### Deploy on a Private Chain(8545)
+[here](./deploy-in-private-blockchain.md)
 
 ## truffle commands
 
@@ -81,8 +93,3 @@ Closely inspect the deployed networks below, and use `truffle networks --clean` 
 ### truffle develop
 In order to facilitate error hunting, we will open a second console with logging. use `truffle develop --log` to see transaction IDs when a transaction fails.
 
-
-## Issues
-
-### Error: VM Exception while processing transaction: invalid JUMP at xxx
-非常困扰的问题。同样的代码，偶尔能成功调用合约，但多数时候会返回这个错误。
