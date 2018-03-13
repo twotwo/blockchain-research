@@ -26,21 +26,14 @@ $ sudo service iptables reload
 ```
 
 ### Run
-```bash
-$ ./go-ethereum/build/bin/geth --rpc --rpcaddr 0.0.0.0
-```
+
+参考 [Creating The Genesis Block](./create-private-network.md) #### 3.1 Starting Up Your Member Nodes
 
 ## [Initialise the private blockchain](https://www.codeooze.com/blockchain/ethereum-geth-private-blockchain/)
 
-### geth 启动发币
-```bash
-$ mkdir geth && cd geth
-$ mkdir privchain
-$ cp $ethereum-started/genesis.json .
-$ geth --datadir privchain init genesis.json
-$ geth --networkid 58342 --nodiscover --datadir="privchain" \
- --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3"
-```
+### Creating The Genesis Block
+
+参考 [Creating The Genesis Block](./create-private-network.md) ### Creating The Genesis Block
 
 ### node端登录并创建账户
 ```bash

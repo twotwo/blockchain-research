@@ -8,17 +8,21 @@
 目前可用的以太坊客户端有很多，并且很多都有坑。开发调试智能合约推荐使用 Geth (Version: 1.8.1-stable)
 
 ### 1. [Geth](https://github.com/ethereum/go-ethereum)
+ * [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
-#### Run a Geth instance
+#### 1.1 Installation
  * macOS `brew install ethereum`
  * [CentOS 6](./install-geth-on-centos6.md)
- * [Command Line Options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
 
 ```bash
 $ geth version 
 Geth
 Version: 1.8.1-stable
 ```
+
+#### 1.2 Create a private network
+[Create a private network](./create-private-network.md)
 
 ### 2. [Ganache](http://truffleframework.com/ganache)
 Ganache is a personal blockchain for Ethereum development you can use to deploy contracts, develop your applications, and run tests.
