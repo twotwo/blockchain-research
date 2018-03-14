@@ -9,14 +9,25 @@ import "./ConvertLib.sol";
 
 contract MetaCoin {
 	mapping (address => uint) balances;
+	address contract_address;
 
 	event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
 	function MetaCoin() public {
 		balances[tx.origin] = 10000;
+		//记录合约账号地址
+		contract_address = tx.origin;
 	}
 
+    function info() public constant returns (address) {
+        return contract_address;
+		// balances[contract_address] = 10000;
+        // return balances[contract_address];
+    }
+
 	function sendCoin(address receiver, uint amount) public returns(bool sufficient) {
+		//强制给初试账号赋值
+		balances[contract_address] = 10000;
 		if (balances[msg.sender] < amount) return false;
 		balances[msg.sender] -= amount;
 		balances[receiver] += amount;

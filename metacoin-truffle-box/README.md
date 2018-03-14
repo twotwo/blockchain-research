@@ -76,16 +76,69 @@ truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.ge
 truffle(develop)> let account = "0x627306090abaB3A6e1400e9345bC60c78a8BEf57";MetaCoin.deployed().then(function(instance){return instance.getBalance(account, { from: account, gas: 1000000 });});
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.balances;});
 # MetaCoin手工转账
+web3.personal.unlockAccount(web3.eth.accounts[1], "password", 15000);
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.sendCoin(web3.eth.accounts[0], 1000, {from: web3.eth.accounts[1]});});
 truffle(develop)> MetaCoin.deployed().then(function(instance){return instance.getBalance(web3.eth.accounts[0]);});
 truffle(develop)> .exit
 ```
 
-
 ### Deploy on a Private Chain(8545)
-[here](./deploy-in-private-blockchain.md)
+ * 参考 [创建私有链](../ethereum-started/create-private-network.md)## Working Steps
+ * [truffle.js配置参考](http://truffleframework.com/docs/advanced/configuration)
+
+```bash
+$ truffle console --network dev
+truffle(dev)> migrate --reset
+# Error: authentication needed: password or unlock
+truffle(dev)> web3.personal.unlockAccount(web3.eth.coinbase, "password", 15000)
+true
+truffle(dev)> compile
+truffle(dev)> migrate
+truffle(dev)> MetaCoin.deployed().then(function(instance){return instance.getBalance(web3.personal.listAccounts[0]);});
+BigNumber { s: 1, e: 0, c: [ 0 ] }
+
+```
+
+## Testing
+ * [Writing Tests in JavaScript](http://truffleframework.com/docs/getting_started/javascript-tests)
+
+### `test/account-test.js`
+
+```bash
+# unlock manage account
+truffle(development)> web3.personal.unlockAccount(web3.eth.coinbase, "password", 15000);
+true
+truffle(development)> test test/account-test.js
+Using network 'development'.
+
+web3.eth.accounts: 0x3b82c1ea469033260c7fe4660b13a77996c33674,0x627306090abab3a6e1400e9345bc60c78a8bef57
+coinbase has 6.97352851527e+22
+  ✓ list account balance (304ms)
+
+  1 passing (305ms)
+```
+
+### `test/metacoin-remote.js`
+
+```bash
+# unlock manage account
+truffle(development)> web3.personal.unlockAccount(web3.eth.coinbase, "password", 15000);
+true
+truffle(development)> test test/metacoin-remote.js
+Using network 'development'.
+
+web3.eth.accounts: 0x3b82c1ea469033260c7fe4660b13a77996c33674,0x627306090abab3a6e1400e9345bc60c78a8bef57
+coinbase has 6.97352851527e+22
+  ✓ list account balance (304ms)
+
+  1 passing (305ms)
+```
 
 ## truffle commands
+[Command reference](http://truffleframework.com/docs/advanced/commands)
+
+### truffle console
+`truffle console --network <networks in truffle.js>`
 
 ### truffle networks
 Closely inspect the deployed networks below, and use `truffle networks --clean` to remove any networks that don't match your configuration.
@@ -93,3 +146,5 @@ Closely inspect the deployed networks below, and use `truffle networks --clean` 
 ### truffle develop
 In order to facilitate error hunting, we will open a second console with logging. use `truffle develop --log` to see transaction IDs when a transaction fails.
 
+### truffle exec
+`truffle exec <script.js> [--network <name>]`
