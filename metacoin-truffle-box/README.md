@@ -1,5 +1,8 @@
-# Truffle Boxes: metacoin
-[metacoin](http://truffleframework.com/boxes/metacoin)
+# Truffle Boxes: MetaCoin, your first Truffel project
+ * [Creating a project](http://truffleframework.com/docs/getting_started/project)
+ * [MetaCoin](http://truffleframework.com/boxes/metacoin) project
+ * [Interacting with your contracts](http://truffleframework.com/docs/getting_started/contracts) 介绍 MetaCoin 合约的常规操作
+ * [Further reading](https://github.com/trufflesuite/truffle-contract)
 
 ## Installing
 
@@ -96,7 +99,15 @@ truffle(dev)> compile
 truffle(dev)> migrate
 truffle(dev)> MetaCoin.deployed().then(function(instance){return instance.getBalance(web3.personal.listAccounts[0]);});
 BigNumber { s: 1, e: 0, c: [ 0 ] }
-
+# Use a contract at a specific address
+truffle(dev)> let instance = MetaCoin.at(MetaCoin.address);
+undefined
+truffle(dev)> instance.getBalance(web3.personal.listAccounts[0]);
+# Sending ether to a contract
+truffle(dev)> instance.send(web3.toWei(1, "ether")).then(function(result) {return result;});
+# Add a new contract to the network
+truffle(dev)> MetaCoin.new().then(function(instance){return instance.getBalance(web3.personal.listAccounts[0]);});
+truffle(dev)> 
 ```
 
 ## Testing
