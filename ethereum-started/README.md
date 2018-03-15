@@ -88,6 +88,8 @@ Solidity v0.4.19 (solc-js)
 $ npm list truffle -g
 $ grep solc ~/.nvm/versions/node/v8.9.1/lib/node_modules/truffle/package.json
     "solc": "0.4.19"
+$ cd ~/.nvm/versions/node/v8.9.1/lib/node_modules/truffle
+$ npm install solc@0.4.21 # or @latest
 ```
 
 ### 2. [Solidity](http://solidity-cn.readthedocs.io/zh/latest/)
