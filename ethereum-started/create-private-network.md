@@ -34,10 +34,23 @@ $ geth --networkid 22 --nodiscover --datadir="/tmp/geth/privchain" \
  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,miner,personal,rpc,evm" \
  --fast --gasprice 4000000000 --targetgaslimit 4712388
 # Run a Developer Chain
-$ geth --networkid 22 --dev --datadir="/tmp/geth/privchain" \
+$ datadir=/tmp/geth/privchain
+$ geth --networkid 22 --dev --datadir $datadir --rpcport 8545 \
  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,miner,personal,rpc,evm"
-$ geth --datadir /tmp/geth/nodechain --networkid 15 --bootnodes enode://bbe96dd69725b951038dfb8129be480aefe4f1e7e5dd8c7203772148e08de7e85a63af843dbc53b012fdcc4e81825d4de5de37f46aa59e00f833571de69a256e@[::]:30303
+> admin.nodeInfo.enode
+"enode://832df7bd98fce56c0239eff33be20ba4855d398882413a2650ecfc342c8bc48fd15a9938605fd3f3ce736f7c4bea2042790bbda107330f713efa3709a074c130@[::]:30303"
 ```
+
+```bash
+# geth add peer
+$ geth --datadir $datadir --networkid 15 --bootnodes admin.nodeInfo.enode@ip:30303
+# or 
+> admin.addPeer("enode://832df7bd98fce56c0239eff33be20ba4855d398882413a2650ecfc342c8bc48fd15a9938605fd3f3ce736f7c4bea2042790bbda107330f713efa3709a074c130@172.16.100.70:30303")
+true
+> net.peerCount
+1
+、、、
+
 
 #### 3.2 Running A Private Miner
 

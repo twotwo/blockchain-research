@@ -31,10 +31,11 @@ $ sudo service iptables reload
 参考 [Creating The Genesis Block](./create-private-network.md) #### 3.1 Starting Up Your Member Nodes
 
 ```bash
-$ geth --datadir /home/geth/geth/privchain init genesis.json
+$ datadir=/home/geth/node/main
+$ geth --datadir $datadir init genesis.json
 $ echo password > cipher.txt
-$ geth --datadir /home/geth/geth/privchain --password cipher.txt account new
-$ geth --networkid 999 --datadir="/home/geth/geth/privchain" --port 30303 \
+$ geth --datadir $datadir --password cipher.txt account new #run twice
+$ geth --networkid 999 --datadir $datadir --port 30303 --rpcport 8545 \
  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" \
  --mine --minerthreads=1 --gasprice "18000000000"
 ```
