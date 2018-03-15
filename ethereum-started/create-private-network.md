@@ -60,6 +60,11 @@ MINER OPTIONS:
 $ geth --networkid 22 --nodiscover --datadir="/tmp/geth/privchain" \
  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" \
  --mine --minerthreads=1 --gasprice "18000000000"
+
+# 启动子节点
+$ geth --networkid 999 --datadir /tmp/geth/nodechain1 --bootnodes enode://8f3817bcccba64cf5de7316de3a0a1215e295f33f83345e97f9e5c60b70a53a03a47db851da97087ea2ac2881d1a8c848eaa9e6c282a26b04c3db188bdd22cfb@172.16.100.70:30303  \
+ --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" \
+ --mine --minerthreads=1 --gasprice "18000000000"
 ```
 
 ### 5. 客户端的操作

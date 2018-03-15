@@ -32,16 +32,18 @@ $ sudo service iptables reload
 
 ```bash
 $ geth --datadir /home/geth/geth/privchain init genesis.json
+$ echo password > cipher.txt
+$ geth --datadir /home/geth/geth/privchain --password cipher.txt account new
 $ geth --networkid 999 --datadir="/home/geth/geth/privchain" --port 30303 \
  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm" \
  --mine --minerthreads=1 --gasprice "18000000000"
 ```
 
-`enode://8f3817bcccba64cf5de7316de3a0a1215e295f33f83345e97f9e5c60b70a53a03a47db851da97087ea2ac2881d1a8c848eaa9e6c282a26b04c3db188bdd22cfb@[::]:30303`
+`enode://7a650d0897cdca3042bc24bd3c4e5079af0b42215a604c34838157f0d8162d880562368c7fb5cb4304449ee5ac575d31d133c22307180bea8f262e5141964633@[::]:30303`
 
 
 ```bash
-$ geth --datadir /tmp/geth/nodechain --networkid 999 --bootnodes enode://8f3817bcccba64cf5de7316de3a0a1215e295f33f83345e97f9e5c60b70a53a03a47db851da97087ea2ac2881d1a8c848eaa9e6c282a26b04c3db188bdd22cfb@172.16.100.70:30303  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,miner,personal,rpc,evm"
+$ geth --datadir /tmp/geth/nodechain --networkid 999 --bootnodes enode://7a650d0897cdca3042bc24bd3c4e5079af0b42215a604c34838157f0d8162d880562368c7fb5cb4304449ee5ac575d31d133c22307180bea8f262e5141964633@172.16.100.70:30303  --rpc --rpcaddr 0.0.0.0 --rpcapi "eth,net,web3,miner,personal,rpc,evm"
 ```
 
 ## [Initialise the private blockchain](https://www.codeooze.com/blockchain/ethereum-geth-private-blockchain/)
