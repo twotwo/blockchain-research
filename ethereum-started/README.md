@@ -81,6 +81,15 @@ Truffle v4.1.3 (core: 4.1.3)
 Solidity v0.4.19 (solc-js)
 ```
 
+#### 1.1 solc(solidity compiler in truffle)
+
+```bash
+#  
+$ npm list truffle -g
+$ grep solc ~/.nvm/versions/node/v8.9.1/lib/node_modules/truffle/package.json
+    "solc": "0.4.19"
+```
+
 ### 2. [Solidity](http://solidity-cn.readthedocs.io/zh/latest/)
 Solidity是一门面向合约的、为实现智能合约而创建的高级编程语言。这门语言受C++，Python和Javascript语言的影响，设计的目的是能在以太坊虚拟机（EVM）上运行。
 
