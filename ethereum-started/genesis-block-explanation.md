@@ -132,8 +132,10 @@ A scalar value equal to the current chain-wide limit of Gas expenditure per bloc
 ```
 
 ```bash
-$ mkdir -p /tmp/geth/devchain
-$ geth --datadir /tmp/geth/devchain init genesis-dev.json
-$ geth --datadir /tmp/geth/devchain --networkid 22 --nodiscover --rpc \
- --rpcapi "eth,net,web3,admin,miner,personal,rpc,evm"
+$ datadir=/home/geth/node/main
+$ mkdir -p $datadir # or rm -rf $datadir
+$ geth --datadir $datadir init genesis.json
+$ echo password > cipher.txt
+$ geth --datadir $datadir --password cipher.txt account new #run twice
+# launch node
 ```
