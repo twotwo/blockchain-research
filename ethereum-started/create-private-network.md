@@ -125,39 +125,3 @@ eth.getBalance(personal.listAccounts[0]);
 ```bash
 web3.personal.unlockAccount(web3.eth.coinbase, "password", 15000)
 ```
-
-## Issues
-
-### Fatal: Failed to start mining: etherbase missing: etherbase must be explicitly specified
-带`--mine`参数启动失败，或者是`miner.start()`报错
-
-原因是当前环境没有账户，需要建立一个账户 `web3.personal.importRawKey("c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3","password")`
-
-### Error: insufficient funds for gas * price + value
-试一下挖矿 `miner.start()`
-
-### Error: intrinsic gas too low
-提高一下 `truffle.js`中的 Gas Limit
-
-### Error: exceeds block gas limit
-[创世区块](../ethereum-started/genesis.json)中设置的gasLimit太小。最大应该是4712388，换算成十六进制就是0x47e7c4。
-
-或者指定 `truffle.js` 中的 gas limit值
-
-```js
-  networks: {
-    development: {
-      host: '172.16.100.70',
-      port: 8545,
-      //Gas limit used for deploys. Default is 4712388
-      gas: '400000',
-      from: '0x627306090abaB3A6e1400e9345bC60c78a8BEf57',
-      network_id: '*' // Match any network id
-    }
-  }
-```
-
-```bash
-truffle(development)> web3.eth.getBlock("pending").gasLimit
-4712388
-```
