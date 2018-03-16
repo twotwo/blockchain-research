@@ -34,7 +34,7 @@ Ganache, when launched, runs on http://127.0.0.1:7545.
 #### metacoin issue
 `Error: VM Exception while processing transaction: invalid JUMP at xxx`
 
-非常困扰的问题。同样的代码，偶尔能成功调用合约，但多数时候会返回这个错误。
+Ganache v1.0.2, solc版本从v0.4.19降级到v0.4.18问题解决
 
 ### 3. Truffle Develop
 This will run the client on http://127.0.0.1:9545
