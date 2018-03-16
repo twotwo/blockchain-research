@@ -112,7 +112,7 @@ A scalar value equal to the current chain-wide limit of Gas expenditure per bloc
 ```json
 {
   "config" : {
-    "chainId"       : 15,
+    "chainId"       : 22,
     "homesteadBlock": 0,
     "eip155Block"   : 0,
     "eip158Block"   : 0
@@ -131,11 +131,5 @@ A scalar value equal to the current chain-wide limit of Gas expenditure per bloc
 }
 ```
 
-```bash
-$ datadir=/home/geth/node/main
-$ mkdir -p $datadir # or rm -rf $datadir
-$ geth --datadir $datadir init genesis.json
-$ echo password > cipher.txt
-$ geth --datadir $datadir --password cipher.txt account new #run twice
-# launch node
-```
+ * [初始化脚本](./init-devchain.sh)
+ * [启动脚本](./run-devchain.sh)

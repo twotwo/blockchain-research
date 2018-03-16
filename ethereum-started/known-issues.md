@@ -2,17 +2,6 @@
 
 ## To Be Solved
 
-### Error: VM Exception while processing transaction: invalid JUMP at xxx
-环境：truffle develop with MetaCoin
-
-尝试的方法
-
-1. 升级solc(solidity compiler in truffle)版本 //无效
-2. 去掉MetaCoin.sol中对ConvertLib.sol的引用 //解决了balance为0的问题(在geth中)，但依然无法在truffle develop中执行
-
-### Error: invalid sender - .."method":"eth_sendRawTransaction" ..
-环境：metamask
-
 
 
 ## Fixed
@@ -60,3 +49,18 @@
 truffle(development)> web3.eth.getBlock("pending").gasLimit
 4712388
 ```
+
+### Error: VM Exception while processing transaction: invalid JUMP at xxx
+环境：truffle develop with MetaCoin
+
+尝试的方法
+
+1. 去掉MetaCoin.sol中对ConvertLib.sol的引用 //解决了balance为0的问题(在geth中)，但依然无法在truffle develop中执行
+2. 升级solc(solidity compiler in truffle)版本 //无效
+3. solc版本从v0.4.19降级到v0.4.18问题解决 Truffle v4.1.3/Solidity v0.4.19 (solc-js)
+
+### Error: invalid sender - .."method":"eth_sendRawTransaction" ..
+环境：MetaMask
+
+参见 [matamask throws errors when sending transaction. #2015](https://github.com/MetaMask/metamask-extension/issues/2015)
+创世块配置中的config.eip155block=0，config.chainId等于节点启动参数的networkId
