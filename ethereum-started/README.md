@@ -63,7 +63,10 @@ wallet --rpc http://localhost:8545
 ## [智能合约的开发](https://solidity.readthedocs.io/en/develop/)
 以太坊去中心化的核心是其可以运行图灵完备的脚本语言，而开发以太坊智能合约则有四种语言：Serpent、Solidity、Mutan、LLL。这些语言都是面向底层设计的语言。目前来看，Solidity 是首选语言，这是由于它内置了 Serpent 语言的所有特性，语法类则似于使用广泛的 JavaScript。再加上 Solidity 的语言特性较少，该语言则可以更简单地实现完备的智能合约体系。
 
-### 1. [Truffle](https://github.com/trufflesuite/truffle) `npm install -g truffle`
+### 1. [Solidity](http://solidity-cn.readthedocs.io/zh/latest/)
+Solidity是一门面向合约的、为实现智能合约而创建的高级编程语言。这门语言受C++，Python和Javascript语言的影响，设计的目的是能在以太坊虚拟机（EVM）上运行。
+
+### 2. [Truffle](https://github.com/trufflesuite/truffle) `npm install -g truffle`
 [Truffle](http://truffleframework.com/) 是针对基于以太坊的Solidity语言的一套开发框架。本身基于Javascript。
  * [中文文档](http://truffle.tryblockchain.org/) 比较过时，扫盲专用
  * [Command reference](http://truffleframework.com/docs/advanced/commands)
@@ -81,7 +84,7 @@ Truffle v4.1.3 (core: 4.1.3)
 Solidity v0.4.19 (solc-js)
 ```
 
-#### 1.1 solc(solidity compiler in truffle)
+#### 2.1 solc(solidity compiler in truffle)
 
 ```bash
 #  
@@ -92,8 +95,7 @@ $ cd ~/.nvm/versions/node/v8.9.1/lib/node_modules/truffle
 $ npm install solc@0.4.21 # or @latest
 ```
 
-### 2. [Solidity](http://solidity-cn.readthedocs.io/zh/latest/)
-Solidity是一门面向合约的、为实现智能合约而创建的高级编程语言。这门语言受C++，Python和Javascript语言的影响，设计的目的是能在以太坊虚拟机（EVM）上运行。
+
 
 ### 3. [与合约交互](http://truffle.tryblockchain.org/truffle-InteractingWithContracts-与合约交互.html)
  * Transaction 交易： 需要GAS，改变网络状态，不立即执行，不暴露返还结果(仅返还交易ID)
