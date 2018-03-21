@@ -1,0 +1,27 @@
+{
+  "name": "first-dapp",
+  "version": "1.0.0",
+  "description": "## Dependency",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js",
+    "start": "./node_modules/.bin/webpack-dev-server --open --config ./config/webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.20.3",
+    "truffle-contract": "^3.0.4",
+    "web3": "^1.0.0-beta.33",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
+  }
+}
