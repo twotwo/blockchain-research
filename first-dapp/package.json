@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js",
+    "dev": "cross-env NODE_ENV=dev DEBUG=console node srv/app.js",
     "start": "./node_modules/.bin/webpack-dev-server --open --config ./config/webpack.config.js"
   },
   "keywords": [],
@@ -17,11 +18,19 @@
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
+    "debug": "^3.1.0",
     "style-loader": "^0.20.3",
     "truffle-contract": "^3.0.4",
     "web3": "^1.0.0-beta.33",
     "webpack": "^3.11.0",
+    "webpack-dev-middleware": "^2.0.6",
     "webpack-dev-server": "^2.11.2"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.3"
   }
 }

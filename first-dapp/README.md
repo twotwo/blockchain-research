@@ -53,6 +53,18 @@ $ npm install webpack@3.11 webpack-dev-server@2.11 --save-dev
 $ npm install clean-webpack-plugin copy-webpack-plugin style-loader css-loader --save-dev
 ```
 
+#### 2.3 安装后端开发相关类库
+ * [express](https://www.npmjs.com/package/webpack) 3.11.0
+ * [sequelize](https://www.npmjs.com/package/sequelize)
+ * [mysql2](https://www.npmjs.com/package/mysql2)
+ * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware)
+
+```bash
+$ npm install debug express sequelize mysql2 --save
+$ npm install webpack-dev-middleware@2.0.6 --save-dev #对齐webpack3
+$ npm install cross-env --save-dev
+```
+
 ### 3. webpack 相关配置
 
 配置逻辑参见 `config/webpack.config.js`
