@@ -10,7 +10,7 @@ Truffle v4.1.3 (core: 4.1.3)
 Solidity v0.4.19 (solc-js)
 ```
 
-## 初始化工程
+## ============= 初始化工程
 
 ### 1. 初始化 Truffle 框架工程
 ```bash
@@ -95,7 +95,7 @@ npm install axios iview vuex vue-cookie --save
 |          |                    |
 +----------+--------------------+
 
-## 部署和运行
+## ============= 部署和运行
 
 ### 1. 智能合约(localhost:9545)
 
@@ -112,9 +112,7 @@ BigNumber { s: 1, e: 4, c: [ 10000 ] }
 truffle(develop)> Coin.deployed().then(function(instance){return instance.send(web3.personal.listAccounts[1],100);});
 ```
 
-### 2. DApp
-
-## 运行
+### 2. 运行程序
 
 ```bash
 ➜  first-dapp git:(master) ✗ npm i
@@ -124,7 +122,21 @@ truffle(develop)> Coin.deployed().then(function(instance){return instance.send(w
 ➜  first-dapp git:(master) ✗ npm run build && open build/html/index.html
 ```
 
-## 开发相关
+ * 前端: http://localhost:3000/
+ * 后端: http://localhost:3000/index
+
+### 3. 单元测试
+全局安装 jest `npm install jest -g`
+
+```bash
+# 调试模式
+➜  first-dapp git:(master) ✗ DEBUG=dao jest test/dao/*
+# windows下
+set DEBUG=dao
+jest test/dao/*
+```
+
+## ============= 开发相关
 
 ### web3.js
  * [web3.js v1.0](http://web3js.readthedocs.io/en/1.0/index.html)
