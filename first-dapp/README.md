@@ -75,7 +75,7 @@ $ npm install cross-env --save-dev
 
 ## 部署和运行
 
-### 1. 智能合约
+### 1. 智能合约(localhost:9545)
 
 ```bash
 ➜  hello-truffle git:(master) ✗ truffle develop
@@ -97,8 +97,8 @@ truffle(develop)> Coin.deployed().then(function(instance){return instance.send(w
 ```bash
 ➜  first-dapp git:(master) ✗ npm i
 # 调试模式
-➜  first-dapp git:(master) ✗ npm start
-# 发布模式
+➜  first-dapp git:(master) ✗ npm run dev
+# 发布静态页面
 ➜  first-dapp git:(master) ✗ npm run build && open build/html/index.html
 ```
 
