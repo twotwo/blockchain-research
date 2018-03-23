@@ -60,9 +60,15 @@ $ npm install clean-webpack-plugin copy-webpack-plugin style-loader css-loader -
  * [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware)
 
 ```bash
-$ npm install debug express sequelize mysql2 --save
+$ npm install date-utils debug express express-session sequelize mysql2 --save
 $ npm install webpack-dev-middleware@2.0.6 --save-dev #对齐webpack3
 $ npm install cross-env --save-dev
+```
+
+#### 2.4 安装Vue等前端框架
+
+```bash
+npm install axios iview vuex vue-cookie --save
 ```
 
 ### 3. webpack 相关配置
@@ -72,6 +78,22 @@ $ npm install cross-env --save-dev
 调用逻辑参见 `package.json`
 
 打包代码参加 `src/`
+
+### 4. 项目结构
+
++----------+--------------------+
+|          | web3.js            |
+| Frontend | truffle-contract   |
+|          | Vue.js             |
+|----------+--------------------+
+|          | Express            |
+| Backend  | sequelize          |
+|          |                    |
++----------+--------------------+
+|          | Webpack 3          |
+|   CI     | Jest               |
+|          |                    |
++----------+--------------------+
 
 ## 部署和运行
 
