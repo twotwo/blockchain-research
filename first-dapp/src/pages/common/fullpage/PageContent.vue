@@ -8,7 +8,7 @@
             <slot></slot>
         </div>
     </section>
-    <section class="page" v-else>页面正在渲染中。。。</section>
+    <section class="page" v-else>页面正在加载中...</section>
 </template>
 
 <script>

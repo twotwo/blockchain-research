@@ -11,6 +11,11 @@
 <script>
 export default {
   name: 'page-controller',
+  data () {
+    return {
+      flag: true // 解决keepalive 状态下， 在其他页面滑动鼠标首页切换page的bug
+    }
+  },
   props: {
     pageNum: Number,
     currentPage: Number,
@@ -63,10 +68,12 @@ export default {
   mounted () {
     let _this = this
     let timer = null
-    let start = 0
     // 滚轮处理
     function scrollHandler (direction) {
       // 防止重复触发滚动事件
+      if (_this.flag) {
+        return
+      }
       if (timer != null) {
         return
       }
@@ -95,24 +102,12 @@ export default {
         scrollHandler(direction)
       }, false)
     }
-    // 移动端触摸事件处理
-    window.addEventListener('touchstart', function (event) {
-      start = event.touches[0].pageX
-    })
-    window.addEventListener('touchmove', function (event) {
-      event.preventDefault()
-    })
-    window.addEventListener('touchend', function (event) {
-      let spacing = event.changedTouches[0].clientY - start
-      let direction
-      if (spacing > 50) {
-        direction = 'up'
-        scrollHandler(direction)
-      } else if (spacing < -50) {
-        direction = 'down'
-        scrollHandler(direction)
-      }
-    })
+  },
+  activated () {
+    this.flag = false
+  },
+  deactivated () {
+    this.flag = true
   }
 }
 </script>

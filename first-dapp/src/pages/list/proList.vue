@@ -9,9 +9,6 @@
           <li>4</li>
           <li>1</li>
           <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>4</li>
         </ul>
       </div>
     </div>
@@ -50,7 +47,7 @@ export default {
   border: #ccc 1px solid;
   text-align: center;
   box-sizing: border-box;
-  background: blue;
+  background: #00E5EE;
   margin-top: 10px;
 }
 </style>

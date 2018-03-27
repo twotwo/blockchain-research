@@ -12,6 +12,9 @@
     <page-content :currentPage="currentPage">
        <desctiption-page class="animate"></desctiption-page>
     </page-content>
+    <page-content :currentPage="currentPage">
+       <desctiption-page class="animate"></desctiption-page>
+    </page-content>
     <page-controller :pageNum="pageNum" :currentPage="currentPage" @changePage="changePage" :option="controllerOption"></page-controller>
   </div>
 </template>
@@ -63,6 +66,15 @@ export default {
       }, {
         background: 'rgba(46, 153, 229, 1)',
         color: '#fff',
+        isCenter: true,
+        afterEnter: afterEnterAnimate,
+        beforeLeave: beforeLeaveAnimate
+      }, {
+        // the color of background
+        background: 'rgba(229, 199, 46, 1)',
+        // the color of text
+        color: '#fff',
+        // is content center
         isCenter: true,
         afterEnter: afterEnterAnimate,
         beforeLeave: beforeLeaveAnimate

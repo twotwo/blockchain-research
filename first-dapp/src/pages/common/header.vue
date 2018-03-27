@@ -44,7 +44,6 @@ export default {
   methods: {
     handClick (index) {
       this.$store.commit('set_active_index', this.routeList[index])
-      console.log(this.$store.state.activeIndex)
       switch (index) {
         case 0 :
           this.$router.push('/')
