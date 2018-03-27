@@ -88,7 +88,7 @@ npm install axios iview vuex vue-cookie --save
 |----------+--------------------+
 |          | Express            |
 | Backend  | sequelize          |
-|          |                    |
+|          | mysql2             |
 +----------+--------------------+
 |          | Webpack 3          |
 |   CI     | Jest               |
@@ -119,7 +119,8 @@ truffle(develop)> Coin.deployed().then(function(instance){return instance.send(w
 # 调试模式
 ➜  first-dapp git:(master) ✗ npm run dev
 # 发布静态页面
-➜  first-dapp git:(master) ✗ npm run build && open build/html/index.html
+➜  first-dapp git:(master) ✗ npm run build
+➜  first-dapp git:(master) ✗ npm run start
 ```
 
  * 前端: http://localhost:3000/
