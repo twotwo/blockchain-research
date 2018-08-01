@@ -4,6 +4,7 @@
  * [区块链白皮书Top10](./whitepaper-top10) ![](./whitepaper-top10.png)
  * [区块链词汇表：从A到Z](http://ethfans.org/posts/blockchain-glossary-from-a-z)
  * [区块链技术概述](./technology-stack.md)
+ * [Why Blockchain Isn’t a Revolution?](./articles/blockchain-isnt-revolution.md) by [Kevin Werbach](http://werbach.com/)
 
 ## 基于以太坊的开发
  * [开发需要掌握的基本概念](./ethereum-started)
